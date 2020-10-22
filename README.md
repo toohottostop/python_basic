@@ -6,6 +6,7 @@ Bulls and Cows requires [Python 3.8.0](https://www.python.org/downloads/release/
 2. `run()` the game
 3. Enjoy
 ## What is this project for?
+Improve self skills in:
 - Exploring namespaces in Python
 - Separate client part from engine part (imitation of frontend and backend)
 - Try to arrange documentation with Markdown
