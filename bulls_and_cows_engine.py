@@ -3,12 +3,17 @@ from random import randint
 _numbers = ''
 
 
-def make_number():
+def make_new_number():
     global _numbers
-    for _ in range(0, 4):
-        _numbers += str(randint(0, 9))
-    if _numbers[0] == '0':
-        _numbers = _numbers.replace('0', str(randint(1, 9)))
+    for i, n in enumerate(_numbers):
+        _numbers = _numbers.replace(n, '')
+    _numbers += str(randint(1, 9))
+    while len(_numbers) < 4:
+        number = str(randint(0, 9))
+        if number not in _numbers:
+            _numbers += number
+    # print(_numbers)
+    return _numbers
 
 
 def number_check(user_input):
@@ -22,4 +27,7 @@ def number_check(user_input):
             else:
                 bulls_and_cows['cows'] += 1
                 numbers_list[i] = ' '
-    print('BULLS - ', bulls_and_cows['bulls'], ', COWS - ', bulls_and_cows['cows'])
+    if bulls_and_cows['bulls'] != 4:
+        print('BULLS - ', bulls_and_cows['bulls'], ', COWS - ', bulls_and_cows['cows'])
+    else:
+        return bulls_and_cows['bulls']
