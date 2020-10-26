@@ -1,4 +1,4 @@
-from bulls_and_cows_engine import make_new_number, number_check
+from bulls_and_cows_engine import make_new_number, number_check, tries_count, game_restart
 
 
 def check_user_input():
@@ -20,18 +20,15 @@ def check_user_input():
 
 
 make_new_number()
-tries = 0
 while True:
     user_input = check_user_input()
-    tries += 1
-    number_check(user_input)
-    tries += 1
-    if number_check(user_input) == 4:
-        print('You WIN!', '\nNumber of strokes: ', tries)
+    count = tries_count()
+    print('BULLS - ', number_check(user_input)[0], ', COWS - ', number_check(user_input)[1])
+    if number_check(user_input)[0] == 4:
+        print('You WIN!', '\nNumber of strokes: ', count)
         restart = input('Continue? [Y/N]: ')
         if restart in ['Y', 'y']:
-            tries = 0
-            make_new_number()
+            game_restart()
             continue
         else:
             break
