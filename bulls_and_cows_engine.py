@@ -1,24 +1,22 @@
 from random import randint
 
-_numbers = ''
+NUMBERS = ''
+COUNT = 0
 
 
 def make_new_number():
-    global _numbers
-    for i, n in enumerate(_numbers):
-        _numbers = _numbers.replace(n, '')
-    _numbers += str(randint(1, 9))
-    while len(_numbers) < 4:
+    global NUMBERS
+    NUMBERS += str(randint(1, 9))
+    while len(NUMBERS) < 4:
         number = str(randint(0, 9))
-        if number not in _numbers:
-            _numbers += number
-    # print(_numbers)
-    return _numbers
+        if number not in NUMBERS:
+            NUMBERS += number
+    return NUMBERS
 
 
 def number_check(user_input):
     bulls_and_cows = {'bulls': 0, 'cows': 0}
-    numbers_list, user_input_list = list(_numbers), list(user_input)
+    numbers_list, user_input_list = list(NUMBERS), list(user_input)
     for i, element in enumerate(numbers_list):
         if element in user_input_list:
             if user_input_list[i] == numbers_list[i]:
@@ -27,7 +25,17 @@ def number_check(user_input):
             else:
                 bulls_and_cows['cows'] += 1
                 numbers_list[i] = ' '
-    if bulls_and_cows['bulls'] != 4:
-        print('BULLS - ', bulls_and_cows['bulls'], ', COWS - ', bulls_and_cows['cows'])
-    else:
-        return bulls_and_cows['bulls']
+    return bulls_and_cows['bulls'], bulls_and_cows['cows']
+
+
+def tries_count():
+    global COUNT
+    COUNT += 1
+    return COUNT
+
+
+def game_restart():
+    global NUMBERS, COUNT
+    NUMBERS = ''
+    COUNT = 0
+    make_new_number()
