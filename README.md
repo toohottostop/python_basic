@@ -1,14 +1,26 @@
-#Emulation of life
+<h1>Emulation of life</h1>
 <img src="https://tgrm.su/img/stickers/fforrespect/10.jpg" alt="Cat" width="200"/>
-<p>This project emulates the life of people and cats. People come into the house and have cats. 
-But people are not always responsible for their pets. Help guys and cats live 365 days.</p>
+<p>
+  This project emulates the life of people and cats. People come into the house and have cats. 
+  But people are not always responsible for their pets. Help guys and cats live 365 days.
+</p>
 
-##How to play
-Emulation of life requires [Python 3.8.0](https://www.python.org/downloads/release/python-380/)
-1. `git clone`
-2. Set up your custom parameters in `__init__` of each class
-3. Populate the your number of cats and people in lists `citizens` and `cats`
-4. Try to make them survive!
-##What is this project for?
-Improve self skills in:
-- Exploring OOP in Python
+<h2>How to play</h2>
+<p>
+  Emulation of life requires
+  <a href="https://www.python.org/downloads/release/python-380/" target="_blank">Python 3.8.0</a>
+</p>
+<ol>
+  <li><code>git clone</code></li>
+  <li>Set up your custom parameters in <code>__init__</code> of each class</li>
+  <li>Populate the your number of cats and people in lists <code>citizens</code> and <code>cats</code></li>
+  <li>Try to make them survive!</li>
+</ol>
+
+<h2>What is this project for?</h2>
+<p>
+  Improve self skills in:
+  <ul>
+    <li>Exploring OOP in Python</li>
+  </ul>
+</p>
