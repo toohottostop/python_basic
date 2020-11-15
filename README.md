@@ -1,7 +1,7 @@
 <h1>Emulation of life</h1>
-<img src="https://tgrm.su/img/stickers/fforrespect/10.jpg" alt="Cat" width="200"/>
+<img src="https://memepedia.ru/wp-content/uploads/2018/03/c1ciiaxv8xs-kopiya.jpg" alt="Cat" width="300"/>
 <p>
-  This project emulates the life of people and cats. People come into the house and have cats. 
+  This project emulates the life of men and cats. Men come into the house and have cats. 
   But people are not always responsible for their pets. Help guys and cats live 365 days.
 </p>
 
@@ -13,7 +13,7 @@
 <ol>
   <li><code>git clone</code></li>
   <li>Set up your custom parameters in <code>__init__</code> of each class</li>
-  <li>Populate the your number of cats and people in lists <code>citizens</code> and <code>cats</code></li>
+  <li>Populate your number of cats and people in lists <code>citizens</code> and <code>cats</code></li>
   <li>Try to make them survive!</li>
 </ol>
 
