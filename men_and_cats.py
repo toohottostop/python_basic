@@ -118,3 +118,48 @@ class Man:
             self.eat()
         else:
             self.watch_MTV()
+
+
+class House:
+
+    def __init__(self):
+        self.man_food = 50
+        self.cat_food = 0
+        self.money = 0
+        self.dirt = 0
+
+    def __str__(self):
+        return 'Food left in the house {}, money left {}, food in cat bowl {}, dirt {}'.format(
+            self.man_food, self.money, self.cat_food, self.dirt)
+
+
+citizens = [
+    Man(name='Beavis'),
+    Man(name='Butthead'),
+    Man(name='Kenny'),
+]
+cats = [
+    Cat(name='Cocos'),
+    Cat(name='Missuri'),
+    Cat(name='Pussycat'),
+]
+
+my_sweet_home = House()
+for cat, citizen in zip(cats, citizens):
+    citizen.go_to_the_house(house=my_sweet_home)
+    citizen.pick_cat(cat, house=my_sweet_home)
+
+for day in range(1, 366):
+    print('================ day {} =================='.format(day))
+    print('~~Guys~~')
+    for citizen in citizens:
+        citizen.act()
+    print('~~Cats~~')
+    for cat in cats:
+        cat.act()
+    print('--- in the end of the day ---')
+    for citizen in citizens:
+        print(citizen)
+    for cat in cats:
+        print(cat)
+    print(f'{my_sweet_home}\n')
