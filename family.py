@@ -21,7 +21,6 @@ class House:
 
 
 class Human:
-
     def __init__(self, name):
         self.name = name
         self.fullness = 300
@@ -131,3 +130,70 @@ class Wife(Human):
         cprint('{} cleaned the house'.format(self.name), color='green')
         self.house.dirt -= 100
         self.fullness -= 10
+
+
+class Child(Human):
+    def __init__(self, name, home):
+        super().__init__(name=name)
+        self.house = home
+        self.fullness = 10
+        self.happiness = 100
+
+    def act(self):
+        dice = randint(1, 2)
+        if self.fullness <= 10:
+            self.eat()
+        elif dice == 1:
+            self.sleep()
+        return super().act()
+
+    def eat(self):
+        if self.house.food >= 10:
+            print('{} ate'.format(self.name))
+            self.fullness += 10
+            self.house.food -= 10
+        else:
+            cprint('There is no food for child, go to store!', color='red')
+
+    def sleep(self):
+        cprint('{} sleep'.format(self.name), color='white')
+        self.fullness -= 10
+
+
+class Cat:
+    def __init__(self, name, home):
+        self.name = name
+        self.house = home
+        self.fullness = 30
+
+    def __str__(self):
+        return 'Im - Cat №{}, fullness {}'.format(self.name, self.fullness)
+
+    def act(self):
+        if self.fullness <= 0:
+            cprint('Cat №{} RIP'.format(self.name), color='red')
+            return True
+        elif self.fullness <= 10:
+            self.eat()
+        dice = randint(1, 2)
+        if dice == 1:
+            self.sleep()
+        elif dice == 2:
+            self.soil()
+
+    def eat(self):
+        if self.house.cat_food >= 10:
+            print('Cat №{} ate'.format(self.name))
+            self.fullness += 20
+            self.house.cat_food -= 10
+        else:
+            print('Cat has no food!')
+
+    def sleep(self):
+        cprint('Cat №{} sleep'.format(self.name), color='blue')
+        self.fullness -= 10
+
+    def soil(self):
+        cprint('Cat №{} scratching wallpapers'.format(self.name), color='blue')
+        self.fullness -= 10
+        self.house.dirt += 5
