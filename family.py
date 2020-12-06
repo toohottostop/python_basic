@@ -197,3 +197,62 @@ class Cat:
         cprint('Cat №{} scratching wallpapers'.format(self.name), color='blue')
         self.fullness -= 10
         self.house.dirt += 5
+
+
+class Simulation(House):
+    def __init__(self, money_incidents, food_incidents):
+        super().__init__()
+        self.cats_quantity = 1
+        self.money_incidents = money_incidents
+        self.food_incidents = food_incidents
+
+    def one_year(self, cats_quantity, salary):
+        cats = []
+        random_days = []
+        for _ in range(self.food_incidents):
+            dice = randint(1, 365)
+            random_days.append(dice)
+        home = House()
+        serge = Husband(name='Serega', home=home, salary=salary)
+        masha = Wife(name='Masha', home=home)
+        kolya = Child(name='Kolya', home=home)
+        for name in range(cats_quantity):
+            cat = Cat(name=name, home=home)
+            cats.append(cat)
+
+        for day in range(1, 366):
+            cprint('================== Day {} =================='.format(day), color='red')
+            if day in random_days:
+                print(f'In day {day} half of the products have expired')
+                home.food = home.food // 2
+            if serge.act() or masha.act() or kolya.act():
+                print(f'With salary of {salary} people can live {day} days')
+                return
+            for cat in cats:
+                if cat.act():
+                    print(f'With salary of {salary} cats can live {day} days')
+                    return
+            home.dirt_in_house()
+            cprint(serge, color='cyan')
+            cprint(masha, color='cyan')
+            cprint(kolya, color='cyan')
+            for cat in cats:
+                cprint(cat, color='cyan')
+            cprint(home, color='cyan')
+            if day == 365:
+                return day
+
+    def experiment(self, salary):
+        for _ in range(1):
+            self.one_year(self.cats_quantity, salary)
+            if self.one_year(self.cats_quantity, salary) == 365:
+                print(f'With salary of {salary}, you can feed {self.cats_quantity} cats')
+                self.cats_quantity += 1
+
+
+if __name__ == '__main__':
+    for food_incidents in range(1, 2):
+        for money_incidents in range(1, 2):
+            life = Simulation(money_incidents, food_incidents)
+            for salary in range(500, 1001, 500):
+                life.experiment(salary)
