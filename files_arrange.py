@@ -1,4 +1,9 @@
-import os, time, shutil, zipfile
+import os
+import time
+import shutil
+import zipfile
+
+"""Arrange from unpack directory"""
 
 
 class Arrange:
@@ -25,10 +30,11 @@ class Arrange:
                 year, month = time_of_file[0], time_of_file[1]
                 out_dir_path_year = os.path.join(self.path_out, str(year))
                 out_dir_path_month = os.path.join(out_dir_path_year, str(month))
-                if not os.path.exists(out_dir_path_month):
-                    os.makedirs(out_dir_path_month)
-                    os.makedirs(out_dir_path_month)
+                os.makedirs(out_dir_path_month, exist_ok=True)
                 shutil.copy2(path_to_in_file, out_dir_path_month)
+
+
+"""Arrange directly from zip file without unpacking"""
 
 
 class ArrangeZipFile(Arrange):
@@ -42,20 +48,19 @@ class ArrangeZipFile(Arrange):
                 file_year, file_month = zip_file.getinfo(file).date_time[0], zip_file.getinfo(file).date_time[1]
                 out_dir_path_year = os.path.join(self.path_out, str(file_year))
                 out_dir_path_month = os.path.join(out_dir_path_year, str(file_month))
-                if not os.path.exists(out_dir_path_month):
-                    os.makedirs(out_dir_path_month)
+                os.makedirs(out_dir_path_month, exist_ok=True)
                 source = zip_file.open(file)
                 target = open(os.path.join(out_dir_path_month, filename), "wb")
                 with source, target:
                     shutil.copyfileobj(source, target)
 
 
-arrange = Arrange(file_name='icons',
+arrange = Arrange(file_name='files/icons',
                   path_in='files/icons',
                   path_out='files')
 arrange.arrange(dir_out_name='icons_by_year')
 
-# arrange_zip = ArrangeZipFile(file_name='icons.zip',
+# arrange_zip = ArrangeZipFile(file_name='files/icons.zip',
 #                      path_in='files/icons.zip',
-#                      path_out='files')
-# arrange_zip.arrange(dir_out_name='icons_by_year')
+#                      path_out='files/')
+# arrange_zip.arrange(dir_out_name='icons_by_year/')
