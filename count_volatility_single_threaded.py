@@ -1,5 +1,5 @@
-from volatility_sort_and_print import *
-from time_track import time_track
+from python_multiprocessing_and_multithreading.time_track import time_track
+from python_multiprocessing_and_multithreading.volatility_sort_and_print import sort, path_to_file
 
 
 class VolatilityCounter:
