@@ -57,3 +57,6 @@ Improve self skills in:
 
 # python_exceptions
 dealing with exceptions
+
+# python_function_style
+Explore fuction style in python: iterators, generators, decorators
