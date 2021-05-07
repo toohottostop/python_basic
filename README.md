@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # python_basic
 Large repository for educational purposes
 
@@ -65,7 +64,9 @@ Explore fuction style in python: iterators, generators, decorators
 
 # snowfall
 simple snowfall created with "simple draw" module
-=======
+
 # template_method
 did some projects using design pattern - "Template Method"
->>>>>>> template_method/main
+
+# python_multiprocessing_and_multithreading
+Explore multiprocessing and multithreading in python
