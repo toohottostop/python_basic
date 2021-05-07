@@ -13,6 +13,7 @@ Improve self skills in:
 - Separate client part from engine part (imitation of frontend and backend)
 - Try to arrange documentation with Markdown
 - Try branches in Git
+
 <h1>Emulation of life</h1>
 <img src="https://memepedia.ru/wp-content/uploads/2018/03/c1ciiaxv8xs-kopiya.jpg" alt="Cat" width="300"/>
 <p>
@@ -53,3 +54,6 @@ Improve self skills in:
     <li>Exploring OOP in Python</li>
   </ul>
 </p>
+
+# python_exceptions
+dealing with exceptions
