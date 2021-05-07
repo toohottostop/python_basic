@@ -60,3 +60,6 @@ dealing with exceptions
 
 # python_function_style
 Explore fuction style in python: iterators, generators, decorators
+
+# snowfall
+simple snowfall created with "simple draw" module
