@@ -70,3 +70,6 @@ did some projects using design pattern - "Template Method"
 
 # python_multiprocessing_and_multithreading
 Explore multiprocessing and multithreading in python
+
+# bowling_tournament
+Console utility for count bowling tournament scores
