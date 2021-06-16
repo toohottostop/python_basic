@@ -175,9 +175,3 @@ class Bowling:
                 self._state.points_in_frame_new(throw=throw, point=point)
         if self.frame != 10:
             raise ValueError('Wrong number of frames')
-
-
-if __name__ == '__main__':
-    bowling = Bowling(game_result='3532X332/3/62--62X', state=FirstThrowState(), count_rules='new')
-    bowling.analize_result()
-    print(f'{bowling.total_points}')
